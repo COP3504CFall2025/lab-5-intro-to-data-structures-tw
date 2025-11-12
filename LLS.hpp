@@ -12,7 +12,7 @@ private:
 public:
     // Constructor
     LLS() {
-        list = new LinkedList<T>();
+        list = new LinkedList<T>;
     };
 
     // Insertion
@@ -22,14 +22,14 @@ public:
 
     // Deletion
     T pop() override {
-        T val = list->getTail();
+        T val = list.getTail()->data;
         list->removeTail();
         return val;
     };
 
     // Access
     T peek() const override {
-        return list->getTail();
+        return list.getTail()->data;
     };
 
     //Getters
