@@ -80,7 +80,7 @@ public:
 		return true;
 	};
 
-	void Clear() {
+	void clear() {
 		while (removeHead()) {
 			continue;
 		}
@@ -144,7 +144,7 @@ public:
 		other.tail = nullptr;
 	};
 	~LinkedList() {
-		Clear();
+		clear();
 	};
 
 private:
