@@ -60,7 +60,7 @@ public:
 		}
 		if (this->count == 1) clearInternal();
 		Node* oldptr = this->head;
-		this->head = this->head.next;
+		this->head = this->head->next;
 		this->head->prev = nullptr;
 		delete oldptr;
 		count--;
@@ -73,7 +73,7 @@ public:
 		}
 		if (count == 1) clearInternal();
 		Node* oldptr = tail;
-		tail = tail.prev;
+		tail = tail->prev;
 		tail->next = nullptr;
 		delete oldptr;
 		count--;
@@ -90,7 +90,7 @@ public:
 	LinkedList<T>& operator=(LinkedList<T>&& other) noexcept {
 		if (this == &other) { return *this; }
 
-		this->Clear();
+		this->clear();
 
 		count = other.count;
 		head = other.head;
@@ -105,7 +105,7 @@ public:
 	LinkedList<T>& operator=(const LinkedList<T>& rhs) {
 		if (this == &rhs) { return *this; }
 		
-		Clear();
+		clear();
 
 		Node* node = rhs.head;
 		while (node) {
