@@ -113,7 +113,7 @@ public:
 			node = node->next;
 		}
 
-		return *this;
+		return *this;.next
 	};
 
 	// Construction/Destruction
