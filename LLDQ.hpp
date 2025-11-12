@@ -43,9 +43,11 @@ public:
 
     // Element Accessors
     const T& front() const override {
+        if (getSize() == 0) throw std::runtime_error("");
         return list.getHead()->data;
     };
     const T& back() const override {
+        if (getSize() == 0) throw std::runtime_error("");
         return list.getTail()->data;
     };
 
