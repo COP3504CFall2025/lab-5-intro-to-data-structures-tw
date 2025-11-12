@@ -56,7 +56,6 @@ public:
 		if (tail != nullptr) tail->next = n;
 		tail = n;
 		if (head == nullptr) head = n;
-		tail->next = n;
 		count++;
 	};
 
