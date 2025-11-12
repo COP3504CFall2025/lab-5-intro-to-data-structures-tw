@@ -11,8 +11,20 @@ struct Node {
 };
 public:
 	// Behaviors
-	void printForward() const;
-	void printReverse() const;
+	void printForward() const {
+		Node* current = this->head;
+		while (current) {
+			cout << current->data << endl;
+			current = current->next;
+		}
+	};
+	void printReverse() const {
+		Node* current = this->tail;
+		while (current) {
+			cout << current->data << endl;
+			current = current->prev;
+		}
+	};
 
 	// Accessors
 	[[nodiscard]] unsigned int getCount() const {
