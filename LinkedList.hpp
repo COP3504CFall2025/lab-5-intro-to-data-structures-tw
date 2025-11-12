@@ -75,7 +75,7 @@ public:
 		if (head == nullptr) {
 			return false;
 		}
-		if (this->count == 1) clearInternal();
+		if (this->count == 1) {clearInternal(); return;}
 		Node* oldptr = this->head;
 		this->head = this->head->next;
 		this->head->prev = nullptr;
@@ -88,7 +88,7 @@ public:
 		if (tail == nullptr) {
 			return false;
 		}
-		if (count == 1) clearInternal();
+		if (count == 1)  {clearInternal(); return;}
 		Node* oldptr = tail;
 		tail = tail->prev;
 		tail->next = nullptr;
