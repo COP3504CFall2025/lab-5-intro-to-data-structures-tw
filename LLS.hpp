@@ -12,7 +12,7 @@ private:
 public:
     // Constructor
     LLS() {
-        list = new LinkedList<T>;
+        list = LinkedList<T>{};
     };
 
     // Insertion

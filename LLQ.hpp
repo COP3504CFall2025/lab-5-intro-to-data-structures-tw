@@ -12,7 +12,7 @@ private:
 public:
     // Constructor
     LLQ() {
-        list = new LinkedList<T>;
+        list = LinkedList<T>{};
     };
 
     // Insertion
