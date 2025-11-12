@@ -46,11 +46,16 @@ public:
 	// Insertion
 	void addHead(const T& data) {
 		Node* n = new Node{data, nullptr, head};
-		head->prev = n;
+		if (head != nullptr) head->prev = n;
+		head = n;
+		if (tail == nullptr) tail = n;
 		count++;
 	};
 	void addTail(const T& data) {
 		Node* n = new Node{data, tail, nullptr};
+		if (tail != nullptr) tail->next = n;
+		tail = n;
+		if (head == nullptr) head = n;
 		tail->next = n;
 		count++;
 	};
