@@ -22,7 +22,7 @@ public:
 
     // Deletion
     T dequeue() override {
-        if (getSize() == 0) throw std::runtime_error();
+        if (getSize() == 0) throw std::runtime_error("");
         T val = peek();
         list.removeHead();
         return val;
@@ -30,7 +30,7 @@ public:
 
     // Access
     T peek() const override {
-        if (getSize() == 0) throw std::runtime_error();
+        if (getSize() == 0) throw std::runtime_error("");
         return list.getHead()->data;
     };
 
