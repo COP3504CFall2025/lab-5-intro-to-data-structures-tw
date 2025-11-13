@@ -12,31 +12,59 @@ class ABS : public StackInterface<T> {
 public:
     // Big 5 + Parameterized Constructor
     ABS() {
-        capacity = 1;
+        this->capacity = 1;
         curr_size = 0;
-        array = nullptr;
+        array = new T[1];
     };
     explicit ABS(const size_t capacity) {
         this->capacity = capacity;
         curr_size = 0;
-        array = nullptr;
+        array = new T[capacity];
     };
     ABS(const ABS& other) {
-        
+        capacity = other.capacity;
+        curr_size = other.curr_size;
+        array = new T[other.capacity];
+        for (size_t i = 0; i < other.getSize(); i++) {
+            array[i] = other.array[i];
+        }
     };
     ABS& operator=(const ABS& rhs) {
         if (this == &rhs) { return *this; }
+
         array = rhs.array;
-        
+        curr_size = rhs.curr_size;
+        capacity = rhs.capacity;
+
+        rhs.array = nullptr;
+        rhs.curr_size = 0;
+        rhs.capacity = 0;
+        return *this;
     };
     ABS(ABS&& other) noexcept {
-
+        capacity = other.capacity;
+        curr_size = other.curr_size;
+        array = other.array;
+        other.array = nullptr;
+        other.capacity = 0;
+        other.curr_size = 0;
     };
     ABS& operator=(ABS&& rhs) noexcept {
+        if (this == &rhs) { return *this; }
+        delete[] array;
         
+        capacity = rhs.capacity;
+        curr_size = rhs.curr_size;
+        array = rhs.array;
+        rhs.array = nullptr;
+        rhs.capacity = 0;
+        rhs.curr_size = 0;
+        return *this;
     };
     ~ABS() noexcept {
-
+        delete[] array;
+        capacity = 0;
+        curr_size = 0;
     };
 
     // Get the number of items in the ABS
@@ -58,7 +86,9 @@ public:
     void push(const T& data) override {
         if (curr_size == capacity) {
             T* temp = new T[capacity * 2];
-            // copy all 
+            for (size_t i = 0; i < curr_size; i++) {
+                temp[i] = array[i];
+            }
             delete[] this->array;
             this->array = temp;
             this->capacity *= 2;
