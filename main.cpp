@@ -19,7 +19,7 @@
 */
 
 int main() {
-    ABS<int>();
+    ABQ<int>();
 
     return 0;
 }
