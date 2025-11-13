@@ -121,8 +121,8 @@ public:
         if (capacity > 1 && curr_size <= capacity / 4) {
             capacity /= 2;
             T* newArr = new T[capacity];
-            for (size_t i = 0; i < curr_size - 1; i++) {
-                newArr[i] = array[i+1];
+            for (size_t i = 0; i < curr_size; i++) {
+                newArr[i] = array[i];
             }
             delete[] array;
             this->array = newArr;
