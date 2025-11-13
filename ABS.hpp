@@ -98,6 +98,9 @@ public:
     };
 
     T peek() const override {
+        if (curr_size == 0) {
+            throw std::runtime_error("tried to pop from empty array");
+        }
         return array[curr_size-1];        
     };
 
