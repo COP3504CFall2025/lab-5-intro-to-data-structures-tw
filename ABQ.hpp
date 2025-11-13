@@ -115,7 +115,9 @@ public:
         
         T val = array[0];
         curr_size--;
-
+        for (size_t i = 0; i < curr_size - 1; i++) {
+            array[i] = array[i+1];
+        }
         if (capacity > 1 && curr_size <= capacity / 4) {
             capacity /= 2;
             T* newArr = new T[capacity];
