@@ -38,12 +38,12 @@ public:
     ABQ& operator=(const ABQ& rhs) {
         if (this == &rhs) { return *this; }
         delete[] array;
+        curr_size = rhs.curr_size;
+        capacity = rhs.capacity;
         array = new T[capacity];
         for (size_t i = 0; i < curr_size; i++) {
             array[i] = rhs.array[i];
         }
-        curr_size = rhs.curr_size;
-        capacity = rhs.capacity;
 
         return *this;
     };
@@ -115,7 +115,7 @@ public:
         
         T val = array[0];
         curr_size--;
-        for (size_t i = 0; i < curr_size - 1; i++) {
+        for (size_t i = 0; i < curr_size; i++) {
             array[i] = array[i+1];
         }
         if (capacity > 1 && curr_size <= capacity / 4) {
