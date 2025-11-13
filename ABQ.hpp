@@ -37,14 +37,14 @@ public:
     };
     ABQ& operator=(const ABQ& rhs) {
         if (this == &rhs) { return *this; }
-
-        array = rhs.array;
+        delete[] array;
+        array = new T[capacity];
+        for (size_t i = 0; i < curr_size; i++) {
+            array[i] = rhs.array[i];
+        }
         curr_size = rhs.curr_size;
         capacity = rhs.capacity;
 
-        rhs.array = nullptr;
-        rhs.curr_size = 0;
-        rhs.capacity = 0;
         return *this;
     };
     ABQ(ABQ&& other) noexcept {
